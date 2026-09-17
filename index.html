@@ -7,6 +7,7 @@
 <title>For My Sayang ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -14,19 +15,38 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     font-family: Georgia, "Times New Roman", serif;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,.25), transparent 30%),
-        linear-gradient(135deg, #f8c8d4, #d98ca1, #8e5266);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,255,255,.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f8c8d4,
+            #d98ca1,
+            #8e5266
+        );
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
+
     color: #542633;
 }
+
+
+/* Main card */
 
 .container {
     width: 90%;
@@ -37,6 +57,7 @@ body {
     text-align: center;
 
     background: rgba(255,255,255,.86);
+
     backdrop-filter: blur(12px);
 
     border-radius: 30px;
@@ -45,20 +66,30 @@ body {
         0 20px 60px rgba(60,20,30,.25);
 
     position: relative;
+
     z-index: 10;
 
     animation: appear 1.2s ease;
 }
+
+
+/* Headings */
 
 h1 {
     font-size: 31px;
     margin: 0 0 15px;
 }
 
+
+/* Introduction */
+
 .intro {
     font-size: 18px;
     line-height: 1.7;
 }
+
+
+/* Button */
 
 button {
     margin-top: 20px;
@@ -66,17 +97,21 @@ button {
     padding: 15px 30px;
 
     border: none;
+
     border-radius: 40px;
 
     background: #c94f70;
+
     color: white;
 
     font-size: 17px;
+
     font-family: inherit;
 
     cursor: pointer;
 
-    box-shadow: 0 8px 20px rgba(180,50,80,.3);
+    box-shadow:
+        0 8px 20px rgba(180,50,80,.3);
 
     transition: .25s;
 }
@@ -89,6 +124,14 @@ button:active {
     transform: scale(.97);
 }
 
+button:disabled {
+    opacity: .8;
+    cursor: default;
+}
+
+
+/* Love message */
+
 #message {
     display: none;
 
@@ -97,10 +140,21 @@ button:active {
     animation: messageAppear 2.5s ease;
 }
 
+
+/* Individual message lines */
+
 .message-line {
     opacity: 0;
-    animation: lineAppear 1.5s ease forwards;
+
+    animation:
+        lineAppear
+        1.5s
+        ease
+        forwards;
 }
+
+
+/* Animation timing */
 
 .message-line:nth-child(2) {
     animation-delay: .8s;
@@ -122,27 +176,45 @@ button:active {
     animation-delay: 4s;
 }
 
+
+/* Message text */
+
 .message-text {
     font-size: 18px;
     line-height: 1.8;
 }
 
+
+/* Final message */
+
 .signature {
     margin-top: 25px;
+
     font-size: 22px;
+
     font-weight: bold;
 }
 
+
+/* Floating hearts */
+
 .heart {
     position: fixed;
+
     bottom: -40px;
 
     pointer-events: none;
 
-    animation: floatHeart linear forwards;
+    animation:
+        floatHeart
+        linear
+        forwards;
 
     z-index: 1;
 }
+
+
+/* Hidden SoundCloud player */
 
 #player {
     position: fixed;
@@ -158,18 +230,29 @@ button:active {
     left: 0;
 }
 
+
+/* Page entrance */
+
 @keyframes appear {
 
     from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+            translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
+
+
+/* Message entrance */
 
 @keyframes messageAppear {
 
@@ -180,111 +263,346 @@ button:active {
     to {
         opacity: 1;
     }
+
 }
+
+
+/* Individual lines */
 
 @keyframes lineAppear {
 
     from {
         opacity: 0;
-        transform: translateY(12px);
+
+        transform:
+            translateY(12px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
+
+
+/* Floating hearts animation */
 
 @keyframes floatHeart {
 
     from {
+
         transform:
             translateY(0)
             rotate(0deg);
 
         opacity: 0;
+
     }
 
     15% {
+
         opacity: .8;
+
     }
 
     to {
+
         transform:
             translateY(-110vh)
             rotate(360deg);
 
         opacity: 0;
+
     }
+
 }
+
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- Main love card -->
 
 <div class="container">
 
-    <h1>💌 For My Sayang</h1>
+
+    <h1>
+        💌 For My Sayang
+    </h1>
+
 
     <div class="intro">
+
         I made something little for you... ❤️
+
     </div>
 
-    <button onclick="openHeart()" id="openButton">
+
+    <button
+        onclick="openHeart()"
+        id="openButton">
+
         Open My Heart ❤️
+
     </button>
+
+
+    <!-- Love message -->
 
     <div id="message">
 
+
         <div class="message-line">
-            <h1>My Sayang ❤️</h1>
+
+            <h1>
+                My Sayang ❤️
+            </h1>
+
         </div>
 
+
         <div class="message-line message-text">
+
             I love you so much. ❤️
+
         </div>
 
+
         <div class="message-line message-text">
+
             Every day, I keep falling for you
             more and more deeply. 😘
+
         </div>
 
+
         <div class="message-line message-text">
+
             I'm sorry for being clingy sometimes,
             but I honestly can't help it...
             I just keep falling for you. 🥺
+
         </div>
+
 
         <div class="message-line message-text">
+
             You mean so much to me, Sayang. ❤️
+
         </div>
 
+
         <div class="message-line signature">
+
             I love you, always. ❤️
+
         </div>
+
 
     </div>
 
+
 </div>
 
-<!-- SoundCloud player -->
+
+
+<!--
+    SoundCloud player
+
+    This uses the SoundCloud cover you gave me.
+-->
+
 <iframe
     id="player"
+
     allow="autoplay"
+
     scrolling="no"
+
     frameborder="no"
-    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/terence-dumas-487867926/apollo-bryant-barnes-cover&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false">
+
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/terence-dumas-487867926/apollo-bryant-barnes-cover%3Fsi%3D801a870ce55645d8b15793cf682c2ba1&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false">
 </iframe>
+
+
 
 <script>
 
+
+/* Keep track of the hearts */
+
 let heartsStarted = false;
+
+
+
+/* Open the love message */
 
 function openHeart() {
 
-    // Show message
-    document.getElementById("message").style.display = "block";
 
-    //
-```
+    /* Show message */
+
+    document.getElementById("message").style.display =
+        "block";
+
+
+    /* Change button */
+
+    const button =
+        document.getElementById("openButton");
+
+
+    button.innerHTML =
+        "❤️ Playing for you...";
+
+
+    button.disabled =
+        true;
+
+
+
+    /*
+        Load SoundCloud Widget API
+    */
+
+    const script =
+        document.createElement("script");
+
+
+    script.src =
+        "https://w.soundcloud.com/player/api.js";
+
+
+    script.onload =
+        function () {
+
+
+            const iframe =
+                document.getElementById("player");
+
+
+            const widget =
+                SC.Widget(iframe);
+
+
+            widget.bind(
+                SC.Widget.Events.READY,
+                function () {
+
+                    widget.play();
+
+                }
+            );
+
+
+        };
+
+
+    document.body.appendChild(script);
+
+
+
+    /* Start floating hearts */
+
+    if (!heartsStarted) {
+
+
+        heartsStarted =
+            true;
+
+
+        setInterval(
+            createHeart,
+            650
+        );
+
+
+    }
+
+}
+
+
+
+/* Create floating hearts */
+
+function createHeart() {
+
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    /* Random heart */
+
+    const hearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓"
+    ];
+
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() *
+                hearts.length
+            )
+        ];
+
+
+    /* Random horizontal position */
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    /* Random size */
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+
+    /* Random speed */
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 4) + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    /* Remove after animation */
+
+    setTimeout(
+        function () {
+
+            heart.remove();
+
+        },
+        10000
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
