@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Sayang ❤️</title>
 
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    overflow: hidden;
+    color: #5a2630;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    background: rgba(255,255,255,0.82);
+    padding: 40px 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(80,20,30,0.2);
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    background: #d94f70;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#message {
+    display: none;
+    margin-top: 25px;
+    animation: fadeIn 2s ease;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: floatUp 7s linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>💌 A little something for my Sayang...</h1>
+
+    <p>
+        I made this just for you ❤️
+    </p>
+
+    <button onclick="openHeart()">
+        Open My Heart ❤️
+    </button>
+
+    <div id="message">
+
+        <h1>My Sayang ❤️</h1>
+
+        <p>
+            I love you so much. ❤️
+        </p>
+
+        <p>
+            Every day, I keep falling for you
+            more and more deeply. 😘
+        </p>
+
+        <p>
+            I'm sorry for being clingy sometimes,
+            but I honestly can't help it...
+            I just keep falling for you. 🥺
+        </p>
+
+        <p>
+            You mean so much to me, Sayang. ❤️
+        </p>
+
+        <p>
+            <strong>I love you, always. ❤️</strong>
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+function openHeart() {
+
+    document.getElementById("message").style.display = "block";
+
+    // Open Apollo
+    window.open(
+        "https://www.youtube.com/watch?v=SqTx73r21k0",
+        "_blank"
+    );
+
+    // Floating hearts
+    setInterval(function() {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 9000);
+
+    }, 500);
+
+}
+
+</script>
+
+</body>
+</html>
