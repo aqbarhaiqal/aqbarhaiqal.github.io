@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Sayang ❤️</title>
 
 <style>
@@ -13,165 +15,277 @@
 body {
     margin: 0;
     min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,.25), transparent 30%),
+        linear-gradient(135deg, #f8c8d4, #d98ca1, #8e5266);
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    justify-content: center;
+
     overflow: hidden;
-    color: #5a2630;
+    color: #542633;
 }
 
 .container {
     width: 90%;
-    max-width: 500px;
+    max-width: 520px;
+
+    padding: 42px 28px;
+
     text-align: center;
-    background: rgba(255,255,255,0.82);
-    padding: 40px 25px;
-    border-radius: 25px;
-    box-shadow: 0 10px 40px rgba(80,20,30,0.2);
+
+    background: rgba(255,255,255,.86);
+    backdrop-filter: blur(12px);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(60,20,30,.25);
+
+    position: relative;
+    z-index: 10;
+
+    animation: appear 1.2s ease;
 }
 
 h1 {
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 31px;
+    margin: 0 0 15px;
 }
 
-p {
+.intro {
     font-size: 18px;
     line-height: 1.7;
 }
 
 button {
-    border: none;
-    background: #d94f70;
-    color: white;
-    padding: 15px 28px;
-    border-radius: 30px;
-    font-size: 17px;
-    cursor: pointer;
     margin-top: 20px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: #c94f70;
+    color: white;
+
+    font-size: 17px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(180,50,80,.3);
+
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 button:active {
-    transform: scale(0.96);
+    transform: scale(.97);
 }
 
 #message {
     display: none;
+
+    margin-top: 28px;
+
+    animation: messageAppear 2.5s ease;
+}
+
+.message-line {
+    opacity: 0;
+    animation: lineAppear 1.5s ease forwards;
+}
+
+.message-line:nth-child(2) {
+    animation-delay: .8s;
+}
+
+.message-line:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.message-line:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+.message-line:nth-child(5) {
+    animation-delay: 3.2s;
+}
+
+.message-line:nth-child(6) {
+    animation-delay: 4s;
+}
+
+.message-text {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.signature {
     margin-top: 25px;
-    animation: fadeIn 2s ease;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .heart {
     position: fixed;
-    bottom: -30px;
-    font-size: 25px;
-    animation: floatUp 7s linear forwards;
-    opacity: 0.8;
+    bottom: -40px;
+
+    pointer-events: none;
+
+    animation: floatHeart linear forwards;
+
+    z-index: 1;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+#player {
+    position: fixed;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    bottom: 0;
+    left: 0;
 }
 
-@keyframes floatUp {
+@keyframes appear {
+
     from {
-        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageAppear {
+
+    from {
         opacity: 0;
     }
-    20% { opacity: 0.8; }
+
     to {
-        transform: translateY(-110vh) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes lineAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatHeart {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
         opacity: 0;
     }
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>💌 A little something for my Sayang...</h1>
+    <h1>💌 For My Sayang</h1>
 
-    <p>
-        I made this just for you ❤️
-    </p>
+    <div class="intro">
+        I made something little for you... ❤️
+    </div>
 
-    <button onclick="openHeart()">
+    <button onclick="openHeart()" id="openButton">
         Open My Heart ❤️
     </button>
 
     <div id="message">
 
-        <h1>My Sayang ❤️</h1>
+        <div class="message-line">
+            <h1>My Sayang ❤️</h1>
+        </div>
 
-        <p>
+        <div class="message-line message-text">
             I love you so much. ❤️
-        </p>
+        </div>
 
-        <p>
+        <div class="message-line message-text">
             Every day, I keep falling for you
             more and more deeply. 😘
-        </p>
+        </div>
 
-        <p>
+        <div class="message-line message-text">
             I'm sorry for being clingy sometimes,
             but I honestly can't help it...
             I just keep falling for you. 🥺
-        </p>
+        </div>
 
-        <p>
+        <div class="message-line message-text">
             You mean so much to me, Sayang. ❤️
-        </p>
+        </div>
 
-        <p>
-            <strong>I love you, always. ❤️</strong>
-        </p>
+        <div class="message-line signature">
+            I love you, always. ❤️
+        </div>
 
     </div>
 
 </div>
 
+<!-- SoundCloud player -->
+<iframe
+    id="player"
+    allow="autoplay"
+    scrolling="no"
+    frameborder="no"
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/terence-dumas-487867926/apollo-bryant-barnes-cover&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false">
+</iframe>
+
 <script>
+
+let heartsStarted = false;
 
 function openHeart() {
 
+    // Show message
     document.getElementById("message").style.display = "block";
 
-    // Open Apollo
-    window.open(
-        "https://www.youtube.com/watch?v=SqTx73r21k0",
-        "_blank"
-    );
-
-    // Floating hearts
-    setInterval(function() {
-
-        const heart = document.createElement("div");
-
-        heart.className = "heart";
-        heart.innerHTML = "❤️";
-
-        heart.style.left =
-            Math.random() * 100 + "vw";
-
-        heart.style.animationDuration =
-            (5 + Math.random() * 4) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(function() {
-            heart.remove();
-        }, 9000);
-
-    }, 500);
-
-}
-
-</script>
-
-</body>
-</html>
+    //
+```
